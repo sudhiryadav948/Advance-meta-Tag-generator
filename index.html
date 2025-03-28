@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Meta Tag Generator with AdMob | Created by Sudhir Yadav</title>
+    <!-- Google AdMob Ads -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-3295245880168221~1749927872" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result-container {
+            margin-top: 30px;
+            position: relative;
+        }
+        #meta-tags-result {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: #27ae60;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        .copy-btn:hover {
+            background: #219653;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .social-meta {
+            background-color: #f0f7fc;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .ad-container {
+            background-color: white;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Ad Unit -->
+    <div class="ad-container">
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-app-pub-3295245880168221/8703849460",
+                enable_page_level_ads: true
+            });
+        </script>
+    </div>
+
+    <div class="container">
+        <h1>Advanced Meta Tag Generator</h1>
+        <p style="text-align: center; color: #7f8c8d;">Create perfect meta tags for SEO and social media sharing</p>
+        
+        <div class="form-group">
+            <label for="page-title">Page Title (50-60 characters recommended):</label>
+            <input type="text" id="page-title" placeholder="Enter your page title">
+            <small id="title-count">0 characters</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="page-description">Meta Description (150-160 characters recommended):</label>
+            <textarea id="page-description" placeholder="Enter your page description"></textarea>
+            <small id="desc-count">0 characters</small>
+        </div>
+        
+        <div class="form-group">
+            <label for="page-keywords">Keywords (comma separated):</label>
+            <input type="text" id="page-keywords" placeholder="keyword1, keyword2, keyword3">
+        </div>
+        
+        <div class="form-group">
+            <label for="page-url">Canonical URL:</label>
+            <input type="text" id="page-url" placeholder="https://example.com/page-url">
+        </div>
+        
+        <div class="form-group">
+            <label for="page-image">Social Media Image URL:</label>
+            <input type="text" id="page-image" placeholder="https://example.com/image.jpg">
+        </div>
+        
+        <div class="form-group">
+            <label for="page-type">Content Type:</label>
+            <select id="page-type">
+                <option value="website">Website</option>
+                <option value="article">Article/Blog Post</option>
+                <option value="product">Product</option>
+                <option value="profile">Profile</option>
+            </select>
+        </div>
+        
+        <button onclick="generateMetaTags()">Generate Meta Tags</button>
+        
+        <div class="result-container">
+            <h2>Generated Meta Tags</h2>
+            <textarea id="meta-tags-result" readonly></textarea>
+            <button class="copy-btn" onclick="copyMetaTags()">Copy to Clipboard</button>
+        </div>
+        
+        <div class="social-meta">
+            <h3>Social Media Preview</h3>
+            <div id="social-preview">
+                <p>Your social media preview will appear here after generation.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created by Sudhir Yadav | © 2025 All Rights Reserved</p>
+            <p>AdMob ID: ca-app-pub-3295245880168221~1749927872</p>
+        </div>
+    </div>
+
+    <!-- Footer Ad Unit -->
+    <div class="ad-container">
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <script>
+        // Character count for title and description
+        document.getElementById('page-title').addEventListener('input', function() {
+            document.getElementById('title-count').textContent = this.value.length + ' characters';
+        });
+        
+        document.getElementById('page-description').addEventListener('input', function() {
+            document.getElementById('desc-count').textContent = this.value.length + ' characters';
+        });
+        
+        function generateMetaTags() {
+            const title = document.getElementById('page-title').value.trim();
+            const description = document.getElementById('page-description').value.trim();
+            const keywords = document.getElementById('page-keywords').value.trim();
+            const url = document.getElementById('page-url').value.trim();
+            const image = document.getElementById('page-image').value.trim();
+            const type = document.getElementById('page-type').value;
+            
+            if (!title && !description && !keywords) {
+                document.getElementById('meta-tags-result').value = 'Please enter at least title, description or keywords';
+                return;
+            }
+            
+            let metaTags = '';
+            
+            // Basic meta tags
+            if (title) {
+                metaTags += `<title>${title}</title>\n`;
+                metaTags += `<meta name="title" content="${title}">\n`;
+            }
+            
+            if (description) {
+                metaTags += `<meta name="description" content="${description}">\n`;
+            }
+            
+            if (keywords) {
+                metaTags += `<meta name="keywords" content="${keywords}">\n`;
+            }
+            
+            // Open Graph/Facebook meta tags
+            metaTags += `\n<!-- Open Graph / Facebook -->\n`;
+            metaTags += `<meta property="og:type" content="${type}">\n`;
+            if (title) metaTags += `<meta property="og:title" content="${title}">\n`;
+            if (description) metaTags += `<meta property="og:description" content="${description}">\n`;
+            if (url) metaTags += `<meta property="og:url" content="${url}">\n`;
+            if (image) metaTags += `<meta property="og:image" content="${image}">\n`;
+            
+            // Twitter meta tags
+            metaTags += `\n<!-- Twitter -->\n`;
+            metaTags += `<meta property="twitter:card" content="summary_large_image">\n`;
+            if (title) metaTags += `<meta property="twitter:title" content="${title}">\n`;
+            if (description) metaTags += `<meta property="twitter:description" content="${description}">\n`;
+            if (url) metaTags += `<meta property="twitter:url" content="${url}">\n`;
+            if (image) metaTags += `<meta property="twitter:image" content="${image}">\n`;
+            
+            // Other important meta tags
+            metaTags += `\n<!-- Other Meta Tags -->\n`;
+            metaTags += `<meta name="viewport" content="width=device-width, initial-scale=1.0">\n`;
+            metaTags += `<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">\n`;
+            
+            document.getElementById('meta-tags-result').value = metaTags.trim();
+            
+            // Update social preview
+            updateSocialPreview(title, description, image);
+        }
+        
+        function updateSocialPreview(title, description, image) {
+            let previewHTML = '';
+            
+            if (image) {
+                previewHTML += `<div style="border:1px solid #ddd; max-width:500px; margin:0 auto;">
+                    <img src="${image}" style="width:100%; height:auto; display:block;">
+                    <div style="padding:15px;">
+                        <h3 style="margin:0 0 10px 0; color:#2d3748;">${title || 'No title provided'}</h3>
+                        <p style="margin:0; color:#4a5568;">${description || 'No description provided'}</p>
+                    </div>
+                </div>`;
+            } else {
+                previewHTML += `<div style="border:1px solid #ddd; padding:15px; max-width:500px; margin:0 auto;">
+                    <h3 style="margin:0 0 10px 0; color:#2d3748;">${title || 'No title provided'}</h3>
+                    <p style="margin:0; color:#4a5568;">${description || 'No description provided'}</p>
+                </div>`;
+            }
+            
+            document.getElementById('social-preview').innerHTML = previewHTML;
+        }
+        
+        function copyMetaTags() {
+            const metaTagsField = document.getElementById('meta-tags-result');
+            metaTagsField.select();
+            document.execCommand('copy');
+            alert('Meta tags copied to clipboard!');
+        }
+
+        // Initialize AdMob ads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('AdMob initialized with App ID: ca-app-pub-3295245880168221~1749927872');
+            console.log('Ad Unit ID: ca-app-pub-3295245880168221/8703849460');
+        });
+    </script>
+</body>
+</html>
